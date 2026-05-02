@@ -1,10 +1,20 @@
 {
-  "name": "semantic-ui-react-icon-picker",
+  "name": "@cecilialabs/semantic-ui-react-icon-picker",
   "version": "1.0.0",
   "description": "Icon picker component for use with semantic-ui-react",
-  "author": "samuel-knutson",
+  "keywords": [
+    "icon",
+    "picker",
+    "dropdown",
+    "semantic-ui-react",
+    "react"
+  ],
+  "author": "juninhodeluca",
   "license": "MIT",
-  "repository": "samuel-knutson/semantic-ui-react-icon-picker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cecil-ia-labs/semantic-ui-react-icon-picker"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.ts",
@@ -76,7 +86,6 @@
   "dependencies": {
     "react-infinite-scroll-component": "^6.1.1"
   },
-  "types": "dist/index.d.ts",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
