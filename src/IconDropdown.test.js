@@ -56,6 +56,13 @@ describe('IconDropdown', () => {
     expect(getValue()).toBe('code');
   });
 
+  it('allows the user to clear the selected icon', () => {
+    const mockCallback = jest.fn();
+    render(<IconDropdown value='user' onChange={mockCallback} />);
+    fireEvent.click(document.querySelector('.dropdown.icon.clear'));
+    expect(mockCallback).toBeCalledWith('');
+  });
+
   it('calls the callback function when the user selects an icon', () => {
     const mockCallback = jest.fn();
     render(<IconDropdown onChange={mockCallback} />);

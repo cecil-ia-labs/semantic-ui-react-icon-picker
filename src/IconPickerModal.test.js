@@ -123,4 +123,22 @@ describe('IconPickerModal', () => {
     fireEvent.click(getIcons().find((i) => i.classList.contains('add')));
     expect(document.querySelector('.modal')).toBe(null);
   });
+
+  it('closes the modal when the user clicks cancel', () => {
+    render(<IconPickerModal />);
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByText('Cancel'));
+    expect(document.querySelector('.modal')).toBe(null);
+  });
+
+  it('keeps the modal open when no icon matches the search (regression)', async () => {
+    render(<IconPickerModal />);
+    fireEvent.click(screen.getByRole('button'));
+    await userEvent.type(
+      screen.getByPlaceholderText('Search...'),
+      '___no_match___'
+    );
+    expect(getIcons()).toHaveLength(0);
+    expect(document.querySelector('.modal.visible')).toBeInTheDocument();
+  });
 });
