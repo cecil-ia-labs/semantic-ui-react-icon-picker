@@ -24,6 +24,7 @@
     "deploy": "gh-pages -d example/build",
     "typecheck": "node -e \"const fs=require('fs');const hasTs=fs.existsSync('tsconfig.json')||fs.readdirSync('src').some(f=>f.endsWith('.ts')||f.endsWith('.tsx'));if(hasTs){require('child_process').execSync('npx tsc --noEmit',{stdio:'inherit'});}else{console.log('No TypeScript sources found; skipping strict typecheck.');}\"",
     "test:ci": "run-s test:lint typecheck test:unit test:build"
+    "test:coverage": "cross-env CI=1 react-scripts test --env=jsdom --watchAll=false --coverage"
   },
   "peerDependencies": {
     "react": "^16.0.0",
@@ -60,5 +61,20 @@
   ],
   "dependencies": {
     "react-infinite-scroll-component": "^5.0.5"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/setupTests.js",
+      "!src/icons.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
   }
 }
