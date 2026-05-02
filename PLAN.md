@@ -40,6 +40,7 @@
 
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
+- 2026-05-02 — Definida estratégia determinística de organização de tipos com arquivos `*.types.ts` por módulo exportado, tipo compartilhado em `src/types/` e exports públicos centralizados em `src/index.ts`; adicionadas regras de lint para bloquear `any` implícito/explícito em superfícies públicas.
 - 2026-05-02 — Atualizado targeting de cobertura/testes para incluir fontes e testes TypeScript/TSX no Jest (`collectCoverageFrom` e `test:unit`), com novo teste TS de descoberta em `src/`.
 - 2026-05-02 — Alinhado `example/package.json` às referências de versões do `package.json` raiz, incluindo atualização de `semantic-ui-react` e sincronização de `resolutions`/`overrides`.
 - 2026-05-02 — Executada rodada de atualização de dependências e lockfile para remediação Dependabot; registrada limitação de cadeia legada de build para advisories remanescentes.
