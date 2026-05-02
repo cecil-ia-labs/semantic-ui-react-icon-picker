@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.3] - 2026-05-02
+
+### Changed
+- Restored `eslint` to latest major (`^10.3.0`) and migrated linting to flat config via new `eslint.config.js`.
+- Added ESLint flat-config-compatible parser/plugin dependencies and TypeScript parser support.
+- Adjusted testing-library packages to React 16 compatible versions to avoid `react-dom/client` resolution errors.
+- Updated `tsconfig.json` with explicit `rootDir` and `ignoreDeprecations` to keep TypeScript 6 typecheck/build stable.
+
+## [1.0.2] - 2026-05-02
+
+### Changed
+- Upgraded direct dependencies (prod/dev) to latest compatible releases while preserving the existing React and `semantic-ui-react` package tracks requested for this repository.
+- Regenerated `package-lock.json` after dependency upgrades and `npm audit fix` for deterministic installation.
+
+### Security
+- Applied all non-breaking audit remediations available in the current toolchain.
+- Remaining advisories are transitive to the legacy `microbundle-crl` + `react-scripts` stack and require a breaking build-tool migration for full remediation.
+
 ## [1.0.1] - 2026-05-02
 
 ### Changed
