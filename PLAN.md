@@ -24,7 +24,7 @@
 - [ ] Coletar feedback de usuários e issues.
 - [ ] Priorizar correções críticas e melhorias de curto prazo.
 - [ ] Publicar patch release com ajustes pós-lançamento.
-- Target date: 2026-08-15
+- Target date: 2026-08-155
 
 ## 3) Checklist por tarefa (owner + status)
 
