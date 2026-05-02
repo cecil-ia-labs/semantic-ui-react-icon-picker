@@ -13,7 +13,7 @@
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
-    "semantic-ui-react": "^0.88.2",
+    "semantic-ui-react": "^3.0.0-beta.2",
     "semantic-ui-react-icon-picker": "file:.."
   },
   "devDependencies": {
@@ -27,5 +27,13 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "resolutions": {
+    "typescript": "^5.8.3",
+    "eslint": "^10.3.0"
+  },
+  "overrides": {
+    "typescript": "^5.8.3",
+    "eslint": "^10.3.0"
+  }
 }
