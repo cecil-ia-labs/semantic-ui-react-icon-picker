@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2019",
-    "module": "ESNext",
+    "module": "node16",
     "lib": [
       "DOM",
       "ES2019"
@@ -12,7 +12,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "moduleResolution": "node10",
+    "moduleResolution": "node16",
     "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": true,

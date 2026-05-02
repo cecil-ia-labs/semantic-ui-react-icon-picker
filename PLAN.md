@@ -28,13 +28,13 @@
 
 ## 3) Checklist por tarefa (owner + status)
 
-| Tarefa | Owner | Status | Prazo |
-|---|---|---|---|
-| Revisar documentação principal | @maintainer | In Progress | 2026-05-15 |
-| Definir critérios de release | @maintainer | Completed | 2026-05-20 |
-| Executar checklist de launch | @release-manager | Todo | 2026-06-25 |
-| Monitorar feedback pós-launch | @product-owner | Todo | 2026-07-15 |
-| Entregar patch pós-launch | @maintainer | Todo | 2026-08-15 |
+| Tarefa                         | Owner            | Status      | Prazo      |
+| ------------------------------ | ---------------- | ----------- | ---------- |
+| Revisar documentação principal | @maintainer      | In Progress | 2026-05-15 |
+| Definir critérios de release   | @maintainer      | Completed   | 2026-05-20 |
+| Executar checklist de launch   | @release-manager | Todo        | 2026-06-25 |
+| Monitorar feedback pós-launch  | @product-owner   | Todo        | 2026-07-15 |
+| Entregar patch pós-launch      | @maintainer      | Todo        | 2026-08-15 |
 
 ## 4) Recently completed
 
@@ -50,11 +50,8 @@
 - 2026-05-02 — Executada rodada de atualização de dependências e lockfile para remediação Dependabot; registrada limitação de cadeia legada de build para advisories remanescentes.
 - 2026-05-02 — Regenerado `package-lock.json` após remoção por conflitos; validado fluxo de geração com `npm install --package-lock-only --ignore-scripts --legacy-peer-deps`.
 - 2026-05-02 — Criação inicial do `PLAN.md` com visão trimestral, milestones, checklist operacional e regra de atualização contínua.
-
 - 2026-05-02 — Atualização de dependências diretas (dev/prod), regeneração de lockfile e nova rodada de `npm audit fix`; pendência remanescente documentada para cadeia legada `microbundle-crl`/`react-scripts`.
-
 - 2026-05-02 — Migração de ESLint para flat config (ESLint 10) e ajustes de toolchain TS/testes para restaurar lint e typecheck após atualização de dependências.
-
 - 2026-05-02 — Adicionados scripts `flight-check` e `test:pup` com harness headless determinístico (viewport/fonts/flags), captura de console e comparação de screenshot com baseline em `tests/fixtures/pup/baseline`.
 
 ## 5) Regra operacional
