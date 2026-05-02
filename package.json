@@ -35,6 +35,8 @@
     "typecheck": "node -e \"const fs=require('fs');const hasTs=fs.existsSync('tsconfig.json')||fs.readdirSync('src').some(f=>f.endsWith('.ts')||f.endsWith('.tsx'));if(hasTs){require('child_process').execSync('npx tsc --noEmit',{stdio:'inherit'});}else{console.log('No TypeScript sources found; skipping strict typecheck.');}\"",
     "test:ci": "run-s test:lint typecheck test:unit test:build",
     "test:coverage": "cross-env CI=1 react-scripts test --env=jsdom --watchAll=false --coverage",
+    "flight-check": "run-s typecheck test:unit test:build",
+    "test:pup": "npm run test:unit -- --watchAll=false"
     "build:js": "microbundle-crl --no-compress --format modern,cjs --tsconfig tsconfig.json",
     "build:types": "tsc -p tsconfig.build.json"
   },

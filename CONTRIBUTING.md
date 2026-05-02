@@ -47,3 +47,31 @@ Releases are automated by `.github/workflows/release.yml` and publish only when 
 - Never print or commit `NPM_TOKEN`.
 - Prefer npm automation tokens scoped only to package publish.
 - Revoke and rotate token immediately if exposed.
+
+
+## Pre-push gate workflow (self-hosted)
+
+The repository includes `.github/workflows/pre-push-self-hosted.yml` as a server-side gate for pull requests and protected-branch pushes (`develop`, `main`, `master`).
+
+Required execution order in this workflow:
+
+```bash
+npm ci
+npm run build
+npm run flight-check
+npm run test:lint
+npm test
+npm run test:pup
+```
+
+### Branch protection configuration
+
+In GitHub branch protection (or Rulesets), require the **`Pre-Push Gate`** check to pass before merging into `develop`.
+
+### Optional local pre-push hook (Husky)
+
+If you also want developer-machine pre-push checks, configure Husky separately with a `pre-push` hook that runs:
+
+```bash
+npm run flight-check && npm run test:pup
+```
