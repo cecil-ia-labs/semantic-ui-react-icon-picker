@@ -1,28 +1,138 @@
 # semantic-ui-react-icon-picker
 
-> Icon picker component for use with semantic-ui-react
+> Seletor de ícones para projetos React com `semantic-ui-react`.
 
-[![NPM](https://img.shields.io/npm/v/semantic-ui-react-icon-picker.svg)](https://www.npmjs.com/package/semantic-ui-react-icon-picker) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/semantic-ui-react-icon-picker.svg)](https://www.npmjs.com/package/semantic-ui-react-icon-picker)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+## Instalação
 
 ```bash
-npm install --save semantic-ui-react-icon-picker
+npm install semantic-ui-react-icon-picker
 ```
 
-## Usage
+Também é necessário ter `react`, `react-dom` e `semantic-ui-react` instalados no projeto.
 
-```jsx
-import React, { useState } from 'react';
-import { IconPicker } from 'semantic-ui-react-icon-picker';
-import 'semantic-ui-react-icon-picker/dist/index.css';
+## Uso rápido
 
-const Example = () => {
-  const [icon, setIcon] = useState();
-  return <IconPicker value={icon} onChange={setIcon} />;
-};
+```tsx
+import { useState } from 'react'
+import { IconDropdown } from 'semantic-ui-react-icon-picker'
+import 'semantic-ui-react-icon-picker/dist/index.css'
+
+type IconName = string | undefined
+
+export function App() {
+  const [icon, setIcon] = useState<IconName>()
+
+  return (
+    <IconDropdown
+      value={icon}
+      onChange={(nextIcon) => setIcon(nextIcon)}
+    />
+  )
+}
 ```
 
+## API
+
+### `IconDropdown`
+
+Dropdown pesquisável com todos os ícones disponíveis.
+
+| Prop | Tipo | Obrigatória | Descrição |
+| --- | --- | --- | --- |
+| `value` | `string \| undefined` | Não | Ícone selecionado atualmente. |
+| `onChange` | `(value: string \| undefined) => void` | Não | Chamado ao selecionar/limpar um ícone. |
+
+**Comportamento**
+- Renderiza um `Dropdown` com `search`, `clearable` e `selection`.
+- Ao limpar, `onChange` recebe `undefined`.
+
+### `IconPickerModal`
+
+Modal com busca e rolagem infinita para escolha de ícone.
+
+| Prop | Tipo | Obrigatória | Descrição |
+| --- | --- | --- | --- |
+| `value` | `string \| undefined` | Não | Ícone atual exibido no botão de trigger. |
+| `onChange` | `(value: string) => void` | Não | Chamado ao selecionar um ícone no modal. |
+
+**Comportamento**
+- Botão trigger mostra o ícone atual (ou texto `Select Icon`).
+- Campo de busca filtra por nome.
+- Lista carrega em páginas durante o scroll.
+- Ao selecionar, fecha o modal e chama `onChange`.
+
+## Exemplos com TypeScript
+
+### `IconDropdown` com formulário
+
+```tsx
+import { Form } from 'semantic-ui-react'
+import { useState } from 'react'
+import { IconDropdown } from 'semantic-ui-react-icon-picker'
+
+type FormState = {
+  icon?: string
+}
+
+export function SettingsForm() {
+  const [formState, setFormState] = useState<FormState>({})
+
+  return (
+    <Form>
+      <Form.Field>
+        <label>Ícone</label>
+        <IconDropdown
+          value={formState.icon}
+          onChange={(icon) => setFormState((prev) => ({ ...prev, icon }))}
+        />
+      </Form.Field>
+    </Form>
+  )
+}
+```
+
+### `IconPickerModal` com preview
+
+```tsx
+import { useState } from 'react'
+import { Icon } from 'semantic-ui-react'
+import { IconPickerModal } from 'semantic-ui-react-icon-picker'
+
+export function IconChooser() {
+  const [icon, setIcon] = useState<string | undefined>('rocket')
+
+  return (
+    <div>
+      <p>
+        Selecionado: {icon ? <Icon name={icon} /> : 'nenhum'}
+      </p>
+      <IconPickerModal
+        value={icon}
+        onChange={(nextIcon) => setIcon(nextIcon)}
+      />
+    </div>
+  )
+}
+```
+
+## Compatibilidade React e semantic-ui-react
+
+| Biblioteca | Versões suportadas |
+| --- | --- |
+| `react` | `>=16.8` |
+| `react-dom` | `>=16.8` |
+| `semantic-ui-react` | `>=2.0.0` |
+
+> Dica: valide também a compatibilidade entre sua versão de React e sua versão de `semantic-ui-react` no projeto consumidor.
+
+## Documentação adicional
+
+- [Migração](./MIGRATION.md)
+- [Contribuição](./CONTRIBUTING.md)
+- [Changelog](./CHANGELOG.md)
 ## Project Scope & Compatibility
 
 ### Package scope
