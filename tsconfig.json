@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "ESNext",
+    "lib": [
+      "DOM",
+      "ES2019"
+    ],
+    "jsx": "react",
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "dist",
+    "example",
+    "node_modules"
+  ]
+}

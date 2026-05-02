@@ -7,13 +7,13 @@
   "repository": "samuel-knutson/semantic-ui-react-icon-picker",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.js",
+  "source": "src/index.ts",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "build": "microbundle-crl --no-compress --format modern,cjs --tsconfig tsconfig.json",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs --tsconfig tsconfig.json",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -54,6 +54,8 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "semantic-ui-react": "^0.88.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1"
     "typescript": "^5.8.3"
   },
   "files": [
@@ -62,6 +64,7 @@
   "dependencies": {
     "react-infinite-scroll-component": "^5.0.5"
   },
+  "types": "dist/index.d.ts"
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
