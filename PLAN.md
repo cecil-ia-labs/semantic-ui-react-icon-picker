@@ -41,6 +41,9 @@
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
 - 2026-05-02 — Implementada matriz explícita de compatibilidade na CI (smoke/full), com exclusões de combinações não suportadas e atualização da tabela de compatibilidade no README para refletir exatamente a cobertura testada.
+- 2026-05-02 — Adicionado workflow self-hosted de gate pré-merge (`pre-push-self-hosted.yml`) com sequência de validações (`npm ci`, build, flight-check, lint, test e test:pup), além de documentação de branch protection e hook local Husky.
+- 2026-05-02 — Definida estratégia determinística de organização de tipos com arquivos `*.types.ts` por módulo exportado, tipo compartilhado em `src/types/` e exports públicos centralizados em `src/index.ts`; adicionadas regras de lint para bloquear `any` implícito/explícito em superfícies públicas.
+- 2026-05-02 — Padronizada a saída de publish em `dist/` com `types` em `package.json` e etapa dedicada de geração de declarações TypeScript (`tsconfig.build.json` + `build:types`).
 - 2026-05-02 — Atualizado targeting de cobertura/testes para incluir fontes e testes TypeScript/TSX no Jest (`collectCoverageFrom` e `test:unit`), com novo teste TS de descoberta em `src/`.
 - 2026-05-02 — Alinhado `example/package.json` às referências de versões do `package.json` raiz, incluindo atualização de `semantic-ui-react` e sincronização de `resolutions`/`overrides`.
 - 2026-05-02 — Executada rodada de atualização de dependências e lockfile para remediação Dependabot; registrada limitação de cadeia legada de build para advisories remanescentes.
@@ -50,6 +53,8 @@
 - 2026-05-02 — Atualização de dependências diretas (dev/prod), regeneração de lockfile e nova rodada de `npm audit fix`; pendência remanescente documentada para cadeia legada `microbundle-crl`/`react-scripts`.
 
 - 2026-05-02 — Migração de ESLint para flat config (ESLint 10) e ajustes de toolchain TS/testes para restaurar lint e typecheck após atualização de dependências.
+
+- 2026-05-02 — Adicionados scripts `flight-check` e `test:pup` com harness headless determinístico (viewport/fonts/flags), captura de console e comparação de screenshot com baseline em `tests/fixtures/pup/baseline`.
 
 ## 5) Regra operacional
 
