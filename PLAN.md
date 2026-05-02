@@ -40,6 +40,7 @@
 
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
+- 2026-05-02 — Adicionado workflow self-hosted de gate pré-merge (`pre-push-self-hosted.yml`) com sequência de validações (`npm ci`, build, flight-check, lint, test e test:pup), além de documentação de branch protection e hook local Husky.
 - 2026-05-02 — Atualizado targeting de cobertura/testes para incluir fontes e testes TypeScript/TSX no Jest (`collectCoverageFrom` e `test:unit`), com novo teste TS de descoberta em `src/`.
 - 2026-05-02 — Alinhado `example/package.json` às referências de versões do `package.json` raiz, incluindo atualização de `semantic-ui-react` e sincronização de `resolutions`/`overrides`.
 - 2026-05-02 — Executada rodada de atualização de dependências e lockfile para remediação Dependabot; registrada limitação de cadeia legada de build para advisories remanescentes.
