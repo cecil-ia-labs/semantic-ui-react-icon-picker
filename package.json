@@ -21,7 +21,9 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "typecheck": "node -e \"const fs=require('fs');const hasTs=fs.existsSync('tsconfig.json')||fs.readdirSync('src').some(f=>f.endsWith('.ts')||f.endsWith('.tsx'));if(hasTs){require('child_process').execSync('npx tsc --noEmit',{stdio:'inherit'});}else{console.log('No TypeScript sources found; skipping strict typecheck.');}\"",
+    "test:ci": "run-s test:lint typecheck test:unit test:build"
   },
   "peerDependencies": {
     "react": "^16.0.0",
@@ -50,7 +52,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "typescript": "^5.8.3"
   },
   "files": [
     "dist"
