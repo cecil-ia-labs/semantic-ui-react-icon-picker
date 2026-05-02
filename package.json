@@ -27,7 +27,12 @@
     "test:coverage": "cross-env CI=1 react-scripts test --env=jsdom --watchAll=false --coverage"
   },
   "resolutions": {
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "eslint": "^10.3.0"
+  },
+  "overrides": {
+    "typescript": "^5.8.3",
+    "eslint": "^10.3.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",

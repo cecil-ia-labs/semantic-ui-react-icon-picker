@@ -22,6 +22,12 @@
       "version": "16"
     }
   },
+  "ignorePatterns": [
+    "node_modules/",
+    ".github/",
+    "coverage/",
+    "./**/*.md"
+  ],
   "rules": {
     "space-before-function-paren": 0,
     "react/prop-types": 0,
