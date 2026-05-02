@@ -53,6 +53,8 @@
 
 - 2026-05-02 — Migração de ESLint para flat config (ESLint 10) e ajustes de toolchain TS/testes para restaurar lint e typecheck após atualização de dependências.
 
+- 2026-05-02 — Adicionados scripts `flight-check` e `test:pup` com harness headless determinístico (viewport/fonts/flags), captura de console e comparação de screenshot com baseline em `tests/fixtures/pup/baseline`.
+
 ## 5) Regra operacional
 
 **Regra obrigatória:** a cada tarefa concluída, este arquivo **deve ser atualizado imediatamente** com:

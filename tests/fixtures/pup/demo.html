@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pup Demo</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #f8f8f8;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      }
+      #root {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+      .card {
+        width: 380px;
+        border: 1px solid #cfd2d6;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        padding: 20px;
+      }
+      .label { color: #1b1c1d; font-size: 16px; }
+      .value { color: #2185d0; font-weight: 700; margin-top: 8px; font-size: 20px; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="card" aria-label="demo-card">
+        <div class="label">Icon Picker Smoke Fixture</div>
+        <div class="value">selected: anchor</div>
+      </div>
+    </div>
+    <script>
+      console.log('PUP_DEMO_READY:selected=anchor');
+    </script>
+  </body>
+</html>
