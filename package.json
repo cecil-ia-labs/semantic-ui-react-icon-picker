@@ -26,6 +26,9 @@
     "test:ci": "run-s test:lint typecheck test:unit test:build",
     "test:coverage": "cross-env CI=1 react-scripts test --env=jsdom --watchAll=false --coverage"
   },
+  "resolutions": {
+    "typescript": "^5.8.3"
+  },
   "peerDependencies": {
     "react": "^16.0.0",
     "semantic-ui-react": ">=2.0.0 <4.0.0-0"
@@ -39,15 +42,7 @@
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.3",
     "eslint": "^10.3.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1",
+    "eslint-config-prettier": "^10.1.8",
     "gh-pages": "^6.3.0",
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
