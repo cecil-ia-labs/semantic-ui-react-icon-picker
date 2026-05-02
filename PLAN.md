@@ -40,6 +40,7 @@
 
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
+- 2026-05-02 — Implementada matriz explícita de compatibilidade na CI (smoke/full), com exclusões de combinações não suportadas e atualização da tabela de compatibilidade no README para refletir exatamente a cobertura testada.
 - 2026-05-02 — Adicionado workflow self-hosted de gate pré-merge (`pre-push-self-hosted.yml`) com sequência de validações (`npm ci`, build, flight-check, lint, test e test:pup), além de documentação de branch protection e hook local Husky.
 - 2026-05-02 — Definida estratégia determinística de organização de tipos com arquivos `*.types.ts` por módulo exportado, tipo compartilhado em `src/types/` e exports públicos centralizados em `src/index.ts`; adicionadas regras de lint para bloquear `any` implícito/explícito em superfícies públicas.
 - 2026-05-02 — Padronizada a saída de publish em `dist/` com `types` em `package.json` e etapa dedicada de geração de declarações TypeScript (`tsconfig.build.json` + `build:types`).

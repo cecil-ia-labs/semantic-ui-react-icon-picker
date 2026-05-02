@@ -120,13 +120,24 @@ export function IconChooser() {
 
 ## Compatibilidade React e semantic-ui-react
 
-| Biblioteca | Versões suportadas |
-| --- | --- |
-| `react` | `>=16.8` |
-| `react-dom` | `>=16.8` |
-| `semantic-ui-react` | `>=2.0.0 <4.0.0-0` |
+A matriz abaixo reflete **exatamente** as combinações exercitadas na CI (`.github/workflows/ci.yml`).
 
-> Dica: valide também a compatibilidade entre sua versão de React e sua versão de `semantic-ui-react` no projeto consumidor.
+### Smoke matrix (testes unitários rápidos)
+
+| React / ReactDOM | semantic-ui-react 2.1.5 (stable) | semantic-ui-react 3.0.0-beta.2 (beta) |
+| --- | --- | --- |
+| 16.14.0 | ✅ testado | ❌ excluído (combinação não suportada) |
+| 17.0.2 | ✅ testado | ❌ excluído (combinação não suportada) |
+| 18.3.1 | ✅ testado | ✅ testado |
+| 19.2.0 | ✅ testado | ✅ testado |
+
+### Full matrix (suite completa)
+
+| React / ReactDOM | semantic-ui-react | Escopo |
+| --- | --- | --- |
+| 16.14.0 | 2.1.5 | unit + build |
+| 18.3.1 | 2.1.5 | unit + build |
+| 19.2.0 | 3.0.0-beta.2 | unit + build |
 
 ## Documentação adicional
 
@@ -141,12 +152,12 @@ This package provides a focused **icon picker component for `semantic-ui-react`*
 
 ### Supported versions
 
-Current compatibility is defined by the package `peerDependencies` and validated through the project toolchain.
+Current compatibility is defined by `peerDependencies` and by the CI matrix documented above.
 
 | Package | Supported versions | Notes |
 | --- | --- | --- |
-| `react` | `^16.0.0` | Minimum supported major is React 16. |
-| `semantic-ui-react` | `>=2.0.0 <4.0.0-0` | Supports v2 stable and v3 beta line. |
+| `react` / `react-dom` | `>=16.14.0` | CI cobre majors 16, 17, 18 e 19 em combinações explícitas. |
+| `semantic-ui-react` | `>=2.1.5` | CI cobre a linha estável 2.1.5 e beta 3.0.0-beta.2. |
 
 ### Known limitations
 
