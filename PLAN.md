@@ -31,7 +31,7 @@
 | Tarefa | Owner | Status | Prazo |
 |---|---|---|---|
 | Revisar documentação principal | @maintainer | In Progress | 2026-05-15 |
-| Definir critérios de release | @maintainer | Todo | 2026-05-20 |
+| Definir critérios de release | @maintainer | Completed | 2026-05-20 |
 | Executar checklist de launch | @release-manager | Todo | 2026-06-25 |
 | Monitorar feedback pós-launch | @product-owner | Todo | 2026-07-15 |
 | Entregar patch pós-launch | @maintainer | Todo | 2026-08-15 |
@@ -40,6 +40,7 @@
 
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
+- 2026-05-02 — Definida governança de publicação manual via GitHub Release, com runbook documentado e safeguards de segurança/proveniência (audit, dry-run, guard de versão e publish com provenance).
 - 2026-05-02 — Atualizado targeting de cobertura/testes para incluir fontes e testes TypeScript/TSX no Jest (`collectCoverageFrom` e `test:unit`), com novo teste TS de descoberta em `src/`.
 - 2026-05-02 — Alinhado `example/package.json` às referências de versões do `package.json` raiz, incluindo atualização de `semantic-ui-react` e sincronização de `resolutions`/`overrides`.
 - 2026-05-02 — Executada rodada de atualização de dependências e lockfile para remediação Dependabot; registrada limitação de cadeia legada de build para advisories remanescentes.

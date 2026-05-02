@@ -178,5 +178,7 @@ MIT © [Sam Knutson](https://github.com/samuel-knutson)
 ## CI and release
 
 - CI runs lint, typecheck, tests, and build on Node LTS matrix via `.github/workflows/ci.yml`.
-- Releases are published to npm via `.github/workflows/release.yml` using `NPM_TOKEN`.
-- See `CONTRIBUTING.md` for branch protection gates and the secure release runbook.
+- Releases are published to npm via `.github/workflows/release.yml` **only** when a maintainer publishes a GitHub Release (`release.published`).
+- Publishing includes security/provenance safeguards (`npm audit --omit=dev`, dry-run, version guard, and `npm publish --provenance`).
+- Follow the full release runbook in [`docs/release.md`](./docs/release.md).
+- See `CONTRIBUTING.md` for branch protection gates and release governance.
