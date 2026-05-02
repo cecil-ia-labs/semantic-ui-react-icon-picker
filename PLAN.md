@@ -31,7 +31,7 @@
 | Tarefa | Owner | Status | Prazo |
 |---|---|---|---|
 | Revisar documentação principal | @maintainer | In Progress | 2026-05-15 |
-| Definir critérios de release | @maintainer | Todo | 2026-05-20 |
+| Definir critérios de release | @maintainer | Completed | 2026-05-20 |
 | Executar checklist de launch | @release-manager | Todo | 2026-06-25 |
 | Monitorar feedback pós-launch | @product-owner | Todo | 2026-07-15 |
 | Entregar patch pós-launch | @maintainer | Todo | 2026-08-15 |
@@ -40,6 +40,7 @@
 
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
+- 2026-05-02 — Definida governança de publicação manual via GitHub Release, com runbook documentado e safeguards de segurança/proveniência (audit, dry-run, guard de versão e publish com provenance).
 - 2026-05-02 — Implementada matriz explícita de compatibilidade na CI (smoke/full), com exclusões de combinações não suportadas e atualização da tabela de compatibilidade no README para refletir exatamente a cobertura testada.
 - 2026-05-02 — Adicionado workflow self-hosted de gate pré-merge (`pre-push-self-hosted.yml`) com sequência de validações (`npm ci`, build, flight-check, lint, test e test:pup), além de documentação de branch protection e hook local Husky.
 - 2026-05-02 — Definida estratégia determinística de organização de tipos com arquivos `*.types.ts` por módulo exportado, tipo compartilhado em `src/types/` e exports públicos centralizados em `src/index.ts`; adicionadas regras de lint para bloquear `any` implícito/explícito em superfícies públicas.
