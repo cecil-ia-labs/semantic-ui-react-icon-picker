@@ -40,6 +40,7 @@
 
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
+- 2026-05-02 — Regenerado `package-lock.json` após remoção por conflitos; validado fluxo de geração com `npm install --package-lock-only --ignore-scripts --legacy-peer-deps`.
 - 2026-05-02 — Criação inicial do `PLAN.md` com visão trimestral, milestones, checklist operacional e regra de atualização contínua.
 
 ## 5) Regra operacional
