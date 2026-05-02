@@ -12,13 +12,8 @@ permissions:
 
 jobs:
   verify:
-    name: Verify (Node ${{ matrix.node }})
+    name: Verify (Node 22)
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [22, 24]
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -38,8 +33,86 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Test
-        run: npm run test:unit -- --watchAll=false
+      - name: Build
+        run: npm run build
+
+  test-matrix-smoke:
+    name: Smoke (${{ matrix.react }} / ${{ matrix.semantic_ui_react }})
+    runs-on: ubuntu-latest
+    needs:
+      - verify
+    strategy:
+      fail-fast: false
+      matrix:
+        react: ['16.14.0', '17.0.2', '18.3.1', '19.2.0']
+        semantic_ui_react: ['2.1.5', '3.0.0-beta.2']
+        exclude:
+          - react: '16.14.0'
+            semantic_ui_react: '3.0.0-beta.2'
+          - react: '17.0.2'
+            semantic_ui_react: '3.0.0-beta.2'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install base dependencies
+        run: npm ci
+
+      - name: Override React and semantic-ui-react versions for matrix
+        run: |
+          npm install --no-save \
+            react@${{ matrix.react }} \
+            react-dom@${{ matrix.react }} \
+            semantic-ui-react@${{ matrix.semantic_ui_react }}
+
+      - name: Unit test smoke
+        run: npm run test:unit -- --watchAll=false --runInBand --passWithNoTests
+
+  test-matrix-full:
+    name: Full suite (${{ matrix.react }} / ${{ matrix.semantic_ui_react }})
+    runs-on: ubuntu-latest
+    needs:
+      - verify
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - react: '16.14.0'
+            semantic_ui_react: '2.1.5'
+          - react: '18.3.1'
+            semantic_ui_react: '2.1.5'
+          - react: '19.2.0'
+            semantic_ui_react: '3.0.0-beta.2'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install base dependencies
+        run: npm ci
+
+      - name: Override React and semantic-ui-react versions for matrix
+        run: |
+          npm install --no-save \
+            react@${{ matrix.react }} \
+            react-dom@${{ matrix.react }} \
+            semantic-ui-react@${{ matrix.semantic_ui_react }}
+
+      - name: Unit tests
+        run: npm run test:unit -- --watchAll=false --runInBand
 
       - name: Build
         run: npm run build
@@ -49,12 +122,22 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - verify
+      - test-matrix-smoke
+      - test-matrix-full
     if: ${{ always() }}
     steps:
       - name: Enforce required checks
         run: |
           if [ "${{ needs.verify.result }}" != "success" ]; then
-            echo "Required CI checks did not pass."
+            echo "Required CI checks did not pass: verify"
+            exit 1
+          fi
+          if [ "${{ needs.test-matrix-smoke.result }}" != "success" ]; then
+            echo "Required CI checks did not pass: test-matrix-smoke"
+            exit 1
+          fi
+          if [ "${{ needs.test-matrix-full.result }}" != "success" ]; then
+            echo "Required CI checks did not pass: test-matrix-full"
             exit 1
           fi
           echo "All required checks passed."

@@ -40,6 +40,7 @@
 
 > Registre aqui itens concluídos em ordem cronológica reversa.
 
+- 2026-05-02 — Implementada matriz explícita de compatibilidade na CI (smoke/full), com exclusões de combinações não suportadas e atualização da tabela de compatibilidade no README para refletir exatamente a cobertura testada.
 - 2026-05-02 — Atualizado targeting de cobertura/testes para incluir fontes e testes TypeScript/TSX no Jest (`collectCoverageFrom` e `test:unit`), com novo teste TS de descoberta em `src/`.
 - 2026-05-02 — Alinhado `example/package.json` às referências de versões do `package.json` raiz, incluindo atualização de `semantic-ui-react` e sincronização de `resolutions`/`overrides`.
 - 2026-05-02 — Executada rodada de atualização de dependências e lockfile para remediação Dependabot; registrada limitação de cadeia legada de build para advisories remanescentes.
