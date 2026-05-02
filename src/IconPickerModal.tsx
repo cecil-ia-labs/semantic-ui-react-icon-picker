@@ -2,13 +2,25 @@ import React from 'react';
 import { Modal, Button, Popup, Input } from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { icons as allIcons } from './icons';
+import type { IconName } from './icons';
 
 const SCROLLABLE_CONTAINER_HEIGHT = 400;
 const INITIAL_LIMIT = 64;
 const PAGE_SIZE = 32;
 
-class IconPickerModal extends React.Component {
-  constructor(props) {
+export interface IconPickerModalProps {
+  value?: IconName;
+  onChange?: (value: IconName) => void;
+}
+
+interface IconPickerModalState {
+  open: boolean;
+  filteredIcons: readonly IconName[];
+  limit: number;
+}
+
+class IconPickerModal extends React.Component<IconPickerModalProps, IconPickerModalState> {
+  constructor(props: IconPickerModalProps) {
     super(props);
     this.state = {
       open: false,
@@ -17,9 +29,9 @@ class IconPickerModal extends React.Component {
     };
   }
 
-  onSearch = (e) => {
+  onSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { limit } = this.state;
-    const query = e.target.value;
+    const query = event.target.value;
     const matchingIcons = allIcons.filter((icon) => icon.match(query));
     const adjustedLimit = Math.min(
       Math.max(INITIAL_LIMIT, limit),
@@ -32,7 +44,7 @@ class IconPickerModal extends React.Component {
     });
   };
 
-  fetchMore = () => {
+  fetchMore = (): void => {
     const { filteredIcons, limit } = this.state;
     if (limit > filteredIcons.length) {
       return;
@@ -43,7 +55,7 @@ class IconPickerModal extends React.Component {
     });
   };
 
-  close = () => {
+  close = (): void => {
     this.setState({
       open: false,
       filteredIcons: allIcons,
@@ -51,7 +63,7 @@ class IconPickerModal extends React.Component {
     });
   };
 
-  renderTrigger() {
+  renderTrigger(): React.ReactNode {
     const { value } = this.props;
     return (
       <Button
@@ -62,7 +74,7 @@ class IconPickerModal extends React.Component {
     );
   }
 
-  renderIcons() {
+  renderIcons(): React.ReactNode {
     const { onChange } = this.props;
     const { filteredIcons, limit } = this.state;
 
@@ -74,7 +86,7 @@ class IconPickerModal extends React.Component {
             <Button
               icon={icon}
               onClick={() => {
-                onChange && onChange(icon);
+                onChange?.(icon);
                 this.close();
               }}
             />
@@ -84,7 +96,7 @@ class IconPickerModal extends React.Component {
     ));
   }
 
-  renderContent() {
+  renderContent(): React.ReactNode {
     const { filteredIcons, limit } = this.state;
     return (
       <InfiniteScroll
@@ -95,13 +107,14 @@ class IconPickerModal extends React.Component {
         hasMore={limit < filteredIcons.length}
         initialScrollY={0}
         height={SCROLLABLE_CONTAINER_HEIGHT}
+        loader={<div />}
       >
         {this.renderIcons()}
       </InfiniteScroll>
     );
   }
 
-  renderActionBar() {
+  renderActionBar(): React.ReactNode {
     return (
       <React.Fragment>
         <Input
@@ -116,7 +129,7 @@ class IconPickerModal extends React.Component {
     );
   }
 
-  render() {
+  render(): React.ReactNode {
     const { open } = this.state;
 
     return (

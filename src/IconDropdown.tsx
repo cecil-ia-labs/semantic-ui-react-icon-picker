@@ -1,9 +1,15 @@
 import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import { icons } from './icons';
+import type { IconName } from './icons';
 import styles from './styles.module.css';
 
-const IconDropdown = ({ value, onChange }) => (
+export interface IconDropdownProps {
+  value?: IconName;
+  onChange?: (value: IconName | undefined) => void;
+}
+
+const IconDropdown: React.FC<IconDropdownProps> = ({ value, onChange }) => (
   <div className={styles['icon-picker']}>
     <Dropdown
       placeholder='Select an icon...'
@@ -17,10 +23,10 @@ const IconDropdown = ({ value, onChange }) => (
         key: icon,
         text: icon,
         value: icon,
-        icon: icon,
+        icon,
         className: styles['icon-picker-item']
       }))}
-      onChange={(e, { value }) => onChange && onChange(value)}
+      onChange={(_, data) => onChange?.(data.value as IconName | undefined)}
     />
   </div>
 );
