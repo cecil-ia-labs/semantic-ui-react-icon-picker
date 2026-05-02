@@ -124,7 +124,7 @@ export function IconChooser() {
 | --- | --- |
 | `react` | `>=16.8` |
 | `react-dom` | `>=16.8` |
-| `semantic-ui-react` | `>=2.0.0` |
+| `semantic-ui-react` | `>=2.0.0 <4.0.0-0` |
 
 > Dica: valide também a compatibilidade entre sua versão de React e sua versão de `semantic-ui-react` no projeto consumidor.
 
@@ -146,12 +146,12 @@ Current compatibility is defined by the package `peerDependencies` and validated
 | Package | Supported versions | Notes |
 | --- | --- | --- |
 | `react` | `^16.0.0` | Minimum supported major is React 16. |
-| `semantic-ui-react` | `^0.88.2` | Targets the pre-1.0 API surface used by this project. |
+| `semantic-ui-react` | `>=2.0.0 <4.0.0-0` | Supports v2 stable and v3 beta line. |
 
 ### Known limitations
 
 - The component is currently scoped to the icon set and behavior exposed by `semantic-ui-react`.
-- No guarantee is currently provided for React 17+ or `semantic-ui-react` 1.x/2.x without explicit validation in this repository.
+- No guarantee is currently provided for React 17+ without explicit validation in this repository.
 - This package does not include a design-system abstraction layer for non-Semantic UI libraries.
 
 ### Major version support policy

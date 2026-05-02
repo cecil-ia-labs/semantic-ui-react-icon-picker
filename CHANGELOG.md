@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.1] - 2026-05-02
+
+### Changed
+- Applied dependency remediation sweep in chronological advisory order (oldest to newest) and regenerated lockfile for deterministic installs.
+- Updated development dependencies (`react`, `react-dom`, `cross-env`, `gh-pages`, `semantic-ui-react`) to current compatible ranges without changing React minimum support.
+- Updated runtime dependency `react-infinite-scroll-component` to latest non-breaking 5.x.
+- Expanded `semantic-ui-react` peer compatibility range to `>=2.0.0 <4.0.0-0` (v2 stable through v3 beta).
+
+### Security
+- Reduced unresolved Dependabot risk surface to toolchain-transitive advisories that currently have no safe non-breaking fix in `microbundle-crl` / CRA-era build chain; follow-up migration required for full closure.
+
+
 ## [1.0.0] - 2026-05-02
 
 ### Added
