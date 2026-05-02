@@ -18,7 +18,7 @@
 - [ ] Publicar versão estável com documentação revisada.
 - [ ] Validar build e distribuição do pacote.
 - [ ] Confirmar checklist de qualidade mínima (lint, testes e smoke test).
-- Target date: 2026-06-30
+- Target date: 2026-06-030
 
 ### Pós-launch milestone
 - [ ] Coletar feedback de usuários e issues.
