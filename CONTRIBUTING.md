@@ -1,82 +1,49 @@
-# CONTRIBUTING
+# Contributing
 
-Obrigado por considerar contribuir com `semantic-ui-react-icon-picker`.
+## CI requirements
 
-## Setup local
+All pull requests are validated by `.github/workflows/ci.yml` with a Node LTS matrix.
 
-```bash
-npm install
-npm test
-```
+Required checks:
 
-## Fluxo recomendado
+- `Verify (Node 22)`
+- `Verify (Node 24)`
+- `Branch Protection Gate`
 
-1. Crie uma branch a partir de `main`.
-2. Faça mudanças pequenas e focadas.
-3. Atualize testes e documentação quando necessário.
-4. Execute checks locais antes de abrir PR.
+To enforce branch protection, configure your repository rules (Rulesets or Branch protection for `main`/`master`) to require all checks above before merge.
 
-## Checks locais
+## Local validation before opening a PR
+
+Run the same commands locally:
 
 ```bash
-npm test
+npm ci
+npm run test:lint
+npm run typecheck
+npm run test:unit -- --watchAll=false
+npm run build
 ```
 
-Se adicionar lint/typecheck no projeto, inclua os comandos nesta seção.
+## Safe release process
 
-## Padrões de contribuição
+Releases are automated by `.github/workflows/release.yml` and publish only when a GitHub Release is published or a `v*` tag is pushed.
 
-- Preserve compatibilidade da API pública quando possível.
-- Em mudanças de API, atualize:
-  - `README.md`
-  - `MIGRATION.md`
-  - `CHANGELOG.md`
-- Prefira nomes explícitos e diffs pequenos.
+### One-time setup
 
-## Pull Requests
+1. Add `NPM_TOKEN` in repository secrets with publish permission for this package.
+2. (Recommended) Use a protected `npm-publish` environment and require reviewer approval.
+3. Protect `main`/`master` and require CI checks before creating release tags.
 
-Inclua no PR:
+### Release steps
 
-- resumo da mudança
-- motivação
-- impacto de compatibilidade
-- evidências de teste
+1. Ensure the target commit is merged and CI is green.
+2. Bump version locally (`npm version patch|minor|major`).
+3. Push commit and tag (`git push && git push --tags`).
+4. Publish a GitHub Release for the tag (or rely on pushed tag trigger).
+5. Confirm the `Release / Publish to npm` workflow succeeded.
 
+### Security notes
 
-
-## Estratégia de branches
-
-- `develop` é a branch de integração contínua de funcionalidades.
-- `main` (ou branch de release) deve receber apenas mudanças já validadas a partir de `develop`.
-
-## Convenções de naming para branches
-
-Crie branches curtas e descritivas a partir de `develop` usando os prefixos:
-
-- `feat/*` para novas funcionalidades.
-- `fix/*` para correções de bugs.
-- `chore/*` para tarefas de manutenção (build, tooling, docs, CI etc.).
-
-Exemplos:
-
-- `feat/icon-search-keyboard-support`
-- `fix/icon-picker-null-value`
-- `chore/update-ci-node-version`
-
-## Fluxo de contribuição
-
-1. Atualize sua cópia local de `develop`.
-2. Crie sua branch de trabalho com um dos prefixos (`feat/*`, `fix/*`, `chore/*`).
-3. Faça commits pequenos e objetivos.
-4. Abra Pull Request para `develop`.
-5. Aguarde:
-   - pelo menos 1 aprovação em review;
-   - CI totalmente verde (todas as checks obrigatórias aprovadas).
-6. Faça merge apenas após review aprovado e CI green.
-
-## Regras de merge
-
-- **Não** fazer merge direto em `develop` sem Pull Request.
-- **Não** fazer merge com checks obrigatórias falhando.
-- Preferir squash merge para manter histórico limpo.
-- 
+- Never print or commit `NPM_TOKEN`.
+- Prefer npm automation tokens scoped only to package publish.
+- Revoke and rotate token immediately if exposed.

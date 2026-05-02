@@ -173,3 +173,10 @@ Feature pull requests are accepted when they:
 ## License
 
 MIT © [Sam Knutson](https://github.com/samuel-knutson)
+
+
+## CI and release
+
+- CI runs lint, typecheck, tests, and build on Node LTS matrix via `.github/workflows/ci.yml`.
+- Releases are published to npm via `.github/workflows/release.yml` using `NPM_TOKEN`.
+- See `CONTRIBUTING.md` for branch protection gates and the secure release runbook.
