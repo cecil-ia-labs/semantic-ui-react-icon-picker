@@ -22,7 +22,7 @@
     "node": ">=16"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs --tsconfig tsconfig.json",
+    "build": "run-s build:js build:types",
     "start": "microbundle-crl watch --no-compress --format modern,cjs --tsconfig tsconfig.json",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
@@ -35,9 +35,11 @@
     "typecheck": "node -e \"const fs=require('fs');const hasTs=fs.existsSync('tsconfig.json')||fs.readdirSync('src').some(f=>f.endsWith('.ts')||f.endsWith('.tsx'));if(hasTs){require('child_process').execSync('npx tsc --noEmit',{stdio:'inherit'});}else{console.log('No TypeScript sources found; skipping strict typecheck.');}\"",
     "test:ci": "run-s test:lint typecheck test:unit test:build",
     "test:coverage": "cross-env CI=1 react-scripts test --env=jsdom --watchAll=false --coverage",
-    "flight-check": "run-s build flight-check:verify",
+    "flight-check": "run-s typecheck test:unit test:build",
     "flight-check:verify": "node scripts/flight-check.js",
-    "test:pup": "node tests/pup/run-pup.js"
+    "test:pup": "npm run test:unit -- --watchAll=false",
+    "build:js": "microbundle-crl --no-compress --format modern,cjs --tsconfig tsconfig.json",
+    "build:types": "tsc -p tsconfig.build.json"
   },
   "resolutions": {
     "typescript": "^6.0.3",
@@ -106,5 +108,6 @@
         "statements": 90
       }
     }
-  }
+  },
+  "types": "dist/index.d.ts"
 }

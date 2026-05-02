@@ -3,15 +3,11 @@ import { Modal, Button, Popup, Input } from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { icons as allIcons } from './icons';
 import type { IconName } from './icons';
+import type { IconPickerModalProps } from './IconPickerModal.types';
 
 const SCROLLABLE_CONTAINER_HEIGHT = 400;
 const INITIAL_LIMIT = 64;
 const PAGE_SIZE = 32;
-
-export interface IconPickerModalProps {
-  value?: IconName;
-  onChange?: (value: IconName) => void;
-}
 
 interface IconPickerModalState {
   open: boolean;

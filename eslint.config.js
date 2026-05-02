@@ -29,6 +29,11 @@ module.exports = [
     },
     plugins: { '@typescript-eslint': tsPlugin, react: reactPlugin, 'react-hooks': reactHooksPlugin },
     settings: { react: { version: '16' } },
-    rules: { 'no-unused-vars': 'off', '@typescript-eslint/no-unused-vars': 'off' }
+    rules: {
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/explicit-module-boundary-types': 'error'
+    }
   }
 ]
