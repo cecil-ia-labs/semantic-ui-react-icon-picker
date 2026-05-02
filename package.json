@@ -22,7 +22,7 @@
     "node": ">=16"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs --tsconfig tsconfig.json",
+    "build": "run-s build:js build:types",
     "start": "microbundle-crl watch --no-compress --format modern,cjs --tsconfig tsconfig.json",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
@@ -37,6 +37,8 @@
     "test:coverage": "cross-env CI=1 react-scripts test --env=jsdom --watchAll=false --coverage",
     "flight-check": "run-s typecheck test:unit test:build",
     "test:pup": "npm run test:unit -- --watchAll=false"
+    "build:js": "microbundle-crl --no-compress --format modern,cjs --tsconfig tsconfig.json",
+    "build:types": "tsc -p tsconfig.build.json"
   },
   "resolutions": {
     "typescript": "^6.0.3",
@@ -102,5 +104,6 @@
         "statements": 90
       }
     }
-  }
+  },
+  "types": "dist/index.d.ts"
 }
