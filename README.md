@@ -2,13 +2,13 @@
 
 > Seletor de ícones para projetos React com `semantic-ui-react`.
 
-[![NPM](https://img.shields.io/npm/v/semantic-ui-react-icon-picker.svg)](https://www.npmjs.com/package/semantic-ui-react-icon-picker)
+[![NPM](https://img.shields.io/npm/v/%40cecilialabs%2Fsemantic-ui-react-icon-picker.svg)](https://www.npmjs.com/package/@cecilialabs/semantic-ui-react-icon-picker)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Instalação
 
 ```bash
-npm install semantic-ui-react-icon-picker
+npm install @cecilialabs/semantic-ui-react-icon-picker
 ```
 
 Também é necessário ter `react`, `react-dom` e `semantic-ui-react` instalados no projeto.
@@ -17,8 +17,8 @@ Também é necessário ter `react`, `react-dom` e `semantic-ui-react` instalados
 
 ```tsx
 import { useState } from 'react'
-import { IconDropdown } from 'semantic-ui-react-icon-picker'
-import 'semantic-ui-react-icon-picker/dist/index.css'
+import { IconDropdown } from '@cecilialabs/semantic-ui-react-icon-picker'
+import '@cecilialabs/semantic-ui-react-icon-picker/dist/index.css'
 
 type IconName = string | undefined
 
@@ -71,7 +71,7 @@ Modal com busca e rolagem infinita para escolha de ícone.
 ```tsx
 import { Form } from 'semantic-ui-react'
 import { useState } from 'react'
-import { IconDropdown } from 'semantic-ui-react-icon-picker'
+import { IconDropdown } from '@cecilialabs/semantic-ui-react-icon-picker'
 
 type FormState = {
   icon?: string
@@ -99,7 +99,7 @@ export function SettingsForm() {
 ```tsx
 import { useState } from 'react'
 import { Icon } from 'semantic-ui-react'
-import { IconPickerModal } from 'semantic-ui-react-icon-picker'
+import { IconPickerModal } from '@cecilialabs/semantic-ui-react-icon-picker'
 
 export function IconChooser() {
   const [icon, setIcon] = useState<string | undefined>('rocket')
@@ -183,7 +183,7 @@ Feature pull requests are accepted when they:
 
 ## License
 
-MIT © [Sam Knutson](https://github.com/samuel-knutson)
+MIT. Código original de [Sam Knutson](https://github.com/samuel-knutson/semantic-ui-react-icon-picker), com modificações e manutenção posteriores da Cecil-IA Labs e colaboradores. Os direitos originais estão preservados em [LICENSE](LICENSE); veja também [NOTICE.md](NOTICE.md).
 
 
 ## CI and release
