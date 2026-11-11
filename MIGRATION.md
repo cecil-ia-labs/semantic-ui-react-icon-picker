@@ -10,7 +10,7 @@ Esta versão consolida a API pública em dois componentes nomeados:
 ## Principais mudanças
 
 1. **Imports explícitos por componente**
-   - Use imports nomeados a partir do pacote principal.
+   - Use imports nomeados a partir do pacote `@cecilialabs/semantic-ui-react-icon-picker`.
 2. **Remoção de API legada baseada em `IconPicker`**
    - Se seu código ainda usa `IconPicker`, migre para `IconDropdown` ou `IconPickerModal` de acordo com o UX esperado.
 3. **Exemplos e documentação em TypeScript**
@@ -21,7 +21,7 @@ Esta versão consolida a API pública em dois componentes nomeados:
 ### Antes (legado)
 
 ```jsx
-import { IconPicker } from 'semantic-ui-react-icon-picker'
+import { IconPicker } from '@cecilialabs/semantic-ui-react-icon-picker'
 
 <IconPicker value={icon} onChange={setIcon} />
 ```
@@ -29,7 +29,7 @@ import { IconPicker } from 'semantic-ui-react-icon-picker'
 ### Depois (dropdown)
 
 ```tsx
-import { IconDropdown } from 'semantic-ui-react-icon-picker'
+import { IconDropdown } from '@cecilialabs/semantic-ui-react-icon-picker'
 
 <IconDropdown value={icon} onChange={setIcon} />
 ```
@@ -37,7 +37,7 @@ import { IconDropdown } from 'semantic-ui-react-icon-picker'
 ### Depois (modal)
 
 ```tsx
-import { IconPickerModal } from 'semantic-ui-react-icon-picker'
+import { IconPickerModal } from '@cecilialabs/semantic-ui-react-icon-picker'
 
 <IconPickerModal value={icon} onChange={setIcon} />
 ```
