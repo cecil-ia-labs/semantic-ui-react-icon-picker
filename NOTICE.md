@@ -1,6 +1,8 @@
 # Authorship and license provenance
 
-This repository is a maintained fork of [samuel-knutson/semantic-ui-react-icon-picker](https://github.com/samuel-knutson/semantic-ui-react-icon-picker).
+This repository is an **independently maintained fork** of [samuel-knutson/semantic-ui-react-icon-picker](https://github.com/samuel-knutson/semantic-ui-react-icon-picker). It retains its software lineage while following its own development, component logic, TypeScript migration, tests, CI, compatibility matrix, and release roadmap. It is not an official upstream release or an assertion of affiliation with the upstream maintainer.
+
+Fork governance and publication are independent: improvements are reviewed and accepted by Cecil-IA Labs maintainers, and upstream incorporation or synchronization is optional rather than required. GitHub fork-network membership does not determine copyright ownership.
 
 - **Original work:** Sam Knutson, 2020. The upstream project's README explicitly identifies its license as MIT, and its package.json declares "MIT" with "samuel-knutson" as the original author.
 - **Fork maintenance and subsequent changes:** Cecil-IA Labs and contributors, 2025–2026.

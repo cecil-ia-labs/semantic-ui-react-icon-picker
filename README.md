@@ -2,6 +2,10 @@
 
 > Seletor de ícones para projetos React com `semantic-ui-react`.
 
+**Manutenção independente.** Este projeto deriva do [Icon Picker original de Sam Knutson](https://github.com/samuel-knutson/semantic-ui-react-icon-picker), mas passou a seguir um ciclo próprio de desenvolvimento e releases. A Cecil-IA Labs mantém a implementação TypeScript, componentes e lógica adaptados, testes automatizados, documentação de migração e matriz de compatibilidade para diferentes versões do React. Não se trata de uma versão oficial nem de um release do upstream.
+
+A licença MIT e os direitos originais são preservados. Confira [NOTICE.md](NOTICE.md) e [LICENSE](LICENSE) para proveniência e atribuição.
+
 [![NPM](https://img.shields.io/npm/v/%40cecilialabs%2Fsemantic-ui-react-icon-picker.svg)](https://www.npmjs.com/package/@cecilialabs/semantic-ui-react-icon-picker)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
