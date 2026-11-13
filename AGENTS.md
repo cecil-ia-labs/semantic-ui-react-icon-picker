@@ -167,3 +167,10 @@ Before any merge into `develop`, require all of the following:
 3. Implement minimal scoped changes.
 4. Open PR targeting `develop`.
 5. Merge only after review approval + green CI.
+
+
+## Showroom and project-specific agent skills (2026-11)
+
+The public showroom is an independently deployed static SPA in `showcase/`. Its icon symbols are illustrative, not actual Semantic UI glyph rendering, and must always be labelled as such. Never alter the published library API merely to support marketing pages.
+
+Use `.agents/skills/icon-picker-api/SKILL.md` for component/API work and `.agents/skills/showroom-ux/SKILL.md` for showcase design, content and Pages publishing. Both supplement—not override—the existing `develop`/PR/review policies above. Validate the showroom via `node --test showcase/tests/smoke.test.mjs` and the library via its established test and typecheck scripts. Preserve original copyright/NOTICE. Never publish npm releases or trigger automatic Pages workflows without explicit maintainer approval.

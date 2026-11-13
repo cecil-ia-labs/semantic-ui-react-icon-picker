@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff9f0">
+<meta name="description" content="Icon Picker Lab: explore a searchable icon-selection interface and the Semantic UI React Icon Picker library, examples, API and npm installation.">
+<link rel="canonical" href="https://cecil-ia-labs.github.io/semantic-ui-react-icon-picker/">
+<meta property="og:title" content="Icon Picker Lab — Cecil-IA Labs"><meta property="og:type" content="website">
+<meta property="og:description" content="Discover icon selection for React and Semantic UI. Explore usage, interactive preview and source code.">
+<link rel="stylesheet" href="./style.css"><script defer src="./app.js"></script>
+<title>Icon Picker Lab · Cecil-IA Labs</title>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="shell topbar"><a class="logo" href="https://cecil-ia-labs.github.io/"><span>✳</span> CECIL/IA <small>COMPONENT LAB</small></a>
+<nav aria-label="Main"><a href="#explore">Explore</a><a href="#docs">Documentation</a><a href="#about">About</a></nav>
+<a class="gitlink" href="https://github.com/cecil-ia-labs/semantic-ui-react-icon-picker">GitHub ↗</a></header>
+<main id="main">
+<section class="hero shell"><div><p class="eyebrow">OPEN COMPONENT SERIES / 01</p><h1>Find your <em>icon.</em><br>Keep your flow.</h1>
+<p class="lead">A focused selection toolkit for React and Semantic UI. Find the right name, see the component API and integrate with confidence.</p>
+<div class="actions"><a class="primary" href="#explore">Explore icons ↘</a><a class="bordered" href="https://www.npmjs.com/package/@cecilialabs/semantic-ui-react-icon-picker">Get it on npm ↗</a></div>
+<div class="meta">React ≥ 16.14 <span>•</span> Semantic UI React <span>•</span> MIT license</div></div>
+<div class="hero-visual" aria-label="Decorative icon-selection illustration"><div class="ring"><div class="art-card"><small>SELECT / 01</small><div class="art-icon">✳</div><strong>Make it yours.</strong><small>ONE ICON · MANY POSSIBILITIES</small></div></div><span class="float fa">★</span><span class="float fb">↗</span><span class="float fc">♡</span></div></section>
+<section class="lab" id="explore"><div class="shell"><p class="eyebrow">PLAYGROUND / INTERACTIVE UX PREVIEW</p><div class="section-head"><div><h2>Choose with confidence.</h2><p>Search, filter and select a representative set of icon names. This preview illustrates the workflow; it is not the actual Semantic UI React component.</p></div><span class="preview">LIVE UI CONCEPT</span></div>
+<div class="workbench"><section class="directory"><div class="pane-head"><strong>ICON DIRECTORY</strong><span id="count" aria-live="polite"></span></div>
+<label for="query" class="search"><span aria-hidden="true">⌕</span><input id="query" placeholder="Search icons (star, mail, rocket…)" type="search" autocomplete="off"><kbd>/</kbd></label>
+<div class="chips" role="group" aria-label="Icon categories"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="interface" aria-pressed="false">Interface</button><button type="button" data-filter="communication" aria-pressed="false">Communication</button><button type="button" data-filter="creative" aria-pressed="false">Creative</button></div>
+<div id="icons" class="icon-grid" aria-label="Available icon names"></div><p id="empty" hidden>No icon names match your search.</p><p class="disclaimer">Illustrative Unicode symbols, not Semantic UI glyphs. The published React package provides the actual icon components.</p></section>
+<aside class="output"><div class="pane-head"><strong>YOUR SELECTION</strong><span>● LIVE STATE</span></div><div class="chosen"><div id="glyph" class="chosen-glyph">★</div><strong id="icon-name">star</strong><small>SELECTED ICON NAME</small></div><div class="mode-label">COMPONENT PREVIEW</div><div class="modes" role="group" aria-label="Component type"><button type="button" data-mode="dropdown" aria-pressed="true">Dropdown</button><button type="button" data-mode="modal" aria-pressed="false">Modal</button></div>
+<div class="codehead"><span>TSX / CONTROLLED VALUE</span><button type="button" id="copy">Copy</button></div><pre><code id="snippet"></code></pre><button class="clear" id="clear" type="button">Clear selection ×</button></aside></div></div></section>
+<section class="docs shell" id="docs"><p class="eyebrow">DEVELOPER EXPERIENCE / 02</p><h2>Install. Import. Select.</h2>
+<div class="install"><code>npm install @cecilialabs/semantic-ui-react-icon-picker</code><button type="button" id="copy-install">Copy</button></div>
+<div class="feature-grid"><article><span>01 / FORM CONTROL</span><h3>IconDropdown</h3><p>Searchable and clearable controlled selection. Clearing returns <code>undefined</code>.</p><a href="https://github.com/cecil-ia-labs/semantic-ui-react-icon-picker/blob/master/src/IconDropdown.tsx">Explore source ↗</a></article>
+<article><span>02 / EXPLORER</span><h3>IconPickerModal</h3><p>A modal with search and progressive loading for browsing a larger icon collection.</p><a href="https://github.com/cecil-ia-labs/semantic-ui-react-icon-picker/blob/master/src/IconPickerModal.tsx">Explore source ↗</a></article>
+<article><span>03 / COMPATIBILITY</span><h3>React + Semantic UI</h3><p>Follow published peer ranges and CI-verified versions; do not assume every combination is supported.</p><a href="https://github.com/cecil-ia-labs/semantic-ui-react-icon-picker/blob/master/MIGRATION.md">Migration notes ↗</a></article></div></section>
+<section class="provenance" id="about"><div class="shell about-grid"><div><p class="eyebrow">OPEN SOURCE / 03</p><h2>Small surface.<br>Intentional detail.</h2></div><div><p>This is an independently maintained Cecil-IA Labs fork of Sam Knutson’s original MIT-licensed icon picker. Original authorship is preserved alongside later TypeScript and compatibility work.</p><p>The showroom is a presentation of the API and workflow—not a runtime test, benchmark, or substitute for the real package.</p><a href="https://github.com/cecil-ia-labs/semantic-ui-react-icon-picker/blob/master/NOTICE.md">Authorship and license provenance ↗</a></div></div></section>
+</main><footer class="shell footer"><a href="https://cecil-ia-labs.github.io/">← Open Source Observatory</a><span>CECIL-IA LABS · COMPONENT LAB</span><a href="https://www.npmjs.com/package/@cecilialabs/semantic-ui-react-icon-picker">npm ↗</a></footer>
+</body></html>
