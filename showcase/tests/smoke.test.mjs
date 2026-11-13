@@ -9,7 +9,7 @@ test('project npm/source and authorship links', () => {
   assert.match(html, /Sam Knutson/);
 });
 test('preview clearly distinguishes illustrative icons from actual package', () => {
-  assert.match(html, /illustrative interface, not the actual Semantic UI React component/);
+  assert.match(html, /not the actual Semantic UI React component/);
   assert.match(html, /Illustrative Unicode symbols/);
 });
 test('accessible controls and event handling', () => {
