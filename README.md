@@ -21,12 +21,12 @@ npm install @cecilialabs/semantic-ui-react-icon-picker
 Install compatible React, React DOM and `semantic-ui-react` in the host application. Consult [package.json](package.json) and the [migration guide](MIGRATION.md) for tested combinations.
 
 ```tsx
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 import { IconDropdown, IconPickerModal } from '@cecilialabs/semantic-ui-react-icon-picker';
 import '@cecilialabs/semantic-ui-react-icon-picker/dist/index.css';
 
 export function IconSetting() {
-  const [icon, setIcon] = useState<string | undefined>('star');
+  const [icon, setIcon] = useState<ComponentProps<typeof IconDropdown>['value']>('star');
   return (
     <>
       <IconDropdown value={icon} onChange={setIcon} />
